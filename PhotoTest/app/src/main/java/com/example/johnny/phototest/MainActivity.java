@@ -2,6 +2,7 @@ package com.example.johnny.phototest;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,22 +32,25 @@ public class MainActivity extends AppCompatActivity {
         Date2 = (EditText) findViewById(R.id.EndText);
 
         Search = (Button) findViewById(R.id.SearchButton);
-
+        Image1.setVisibility(View.VISIBLE);
         Search.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
-
+                Log.d("MainActivity", "onClick was clicked");
                 StartDate = Date.getText().toString();
                 EndDate = Date2.getText().toString();
-                Image1.setVisibility(View.VISIBLE);
-                if(StartDate == "20160202"){
 
-                Image1.setVisibility(View.INVISIBLE);
+                Log.e(StartDate, Date.getText().toString());
+
+                if(StartDate =="20160202" && EndDate =="20160404"){
+                    Log.d("MainActivity", "first match was true");
+
+                    Image1.setVisibility(View.INVISIBLE);
 
                 }
 
-                if(StartDate == "20140202"){
+                if(StartDate == "20140202" && EndDate == "20140404"){
 
                     Image1.setVisibility(View.VISIBLE);
                     Image2.setVisibility(View.INVISIBLE);
