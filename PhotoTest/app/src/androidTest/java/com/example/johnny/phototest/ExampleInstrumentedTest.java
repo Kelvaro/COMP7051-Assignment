@@ -51,9 +51,9 @@ public class ExampleInstrumentedTest {
     @Test
     public void Checkdate() {
 
-        //onView(withId(R.id.StartText)).perform(typeText("20160202")), closeSoftKeyboard();
+        onView(withId(R.id.StartText)).perform(typeText("20160202"));
 
-       // onView(withId(R.id.editText2)).perform(typeText("20170606")), closeSoftKeyboard();
+        onView(withId(R.id.EndText)).perform(typeText("20170606"));
 
 
         //onView(withId(R.id.button)).perform(click());

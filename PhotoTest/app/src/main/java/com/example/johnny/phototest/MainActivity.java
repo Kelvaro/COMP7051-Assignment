@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     String EndDate;
     ImageView Image1;
     ImageView Image2;
-   // TextView txt;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
