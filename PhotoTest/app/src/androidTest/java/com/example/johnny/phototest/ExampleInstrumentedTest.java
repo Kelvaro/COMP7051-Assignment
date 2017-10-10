@@ -5,9 +5,11 @@ import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
-import static android.support.test.espresso.matcher.ViewMatchers.withText;
+
 
 import org.junit.Rule;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -15,9 +17,10 @@ import static android.support.test.espresso.Espresso.closeSoftKeyboard;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.typeText;
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static org.junit.Assert.*;
-
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
 /**
  * Instrumentation test, which will execute on an Android device.
  *
@@ -48,12 +51,16 @@ public class ExampleInstrumentedTest {
     @Test
     public void Checkdate() {
 
-        onView(withId(R.id.editText)).perform(typeText("20160202")), closeSoftKeyboard();
+        //onView(withId(R.id.StartText)).perform(typeText("20160202")), closeSoftKeyboard();
 
-        onView(withId(R.id.editText2)).perform(typeText("20120606")), closeSoftKeyboard();
+       // onView(withId(R.id.editText2)).perform(typeText("20170606")), closeSoftKeyboard();
 
 
-        onView(withId(R.id.button)).perform(click());
+        //onView(withId(R.id.button)).perform(click());
+
+        //onView(withId(R.id.Images)).check(matches(withText("3")));
+
+
     }
 
 
