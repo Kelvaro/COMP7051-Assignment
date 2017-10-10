@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="46dp"
+        android:layout_marginTop="49dp"
         android:contentDescription="EndDate"
         android:ems="10"
         android:hint="End Date"

@@ -42,8 +42,9 @@ public class MainActivity extends AppCompatActivity {
                 EndDate = Date2.getText().toString();
 
                 Log.e(StartDate, Date.getText().toString());
+                Log.e(EndDate, Date2.getText().toString());
 
-                if(StartDate =="20160202" && EndDate =="20160404"){
+                if(StartDate.toString().equals("20160202") && EndDate.toString().equals("20160404")){
                     Log.d("MainActivity", "first match was true");
 
                     Image1.setVisibility(View.INVISIBLE);
