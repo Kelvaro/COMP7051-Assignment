@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity{
             else
                 ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE}, WRITE_STORAGE_PERMISSION_CODE);
 
-            String path = "/sdcard";
+            String path =  "/sdcard";
             Log.d("Files", "Path: " + path);
             //Create a file
             File newFile = new File("/sdcard/tempfile.txt");
