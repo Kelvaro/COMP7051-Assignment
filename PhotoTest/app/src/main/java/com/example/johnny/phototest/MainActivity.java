@@ -32,31 +32,11 @@ public class MainActivity extends AppCompatActivity {
         Date2 = (EditText) findViewById(R.id.EndText);
 
         Search = (Button) findViewById(R.id.SearchButton);
-        Image1.setVisibility(View.VISIBLE);
         Search.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
-                Log.d("MainActivity", "onClick was clicked");
-                StartDate = Date.getText().toString();
-                EndDate = Date2.getText().toString();
-
-                Log.e(StartDate, Date.getText().toString());
-                Log.e(EndDate, Date2.getText().toString());
-
-                if(StartDate.toString().equals("20160202") && EndDate.toString().equals("20160404")){
-                    Log.d("MainActivity", "first match was true");
-
-                    Image1.setVisibility(View.INVISIBLE);
-
-                }
-
-                if(StartDate == "20140202" && EndDate == "20140404"){
-
-                    Image1.setVisibility(View.VISIBLE);
-                    Image2.setVisibility(View.INVISIBLE);
-
-                }
+            startActivity();
 
 
             }
@@ -65,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         });
+
+
 
 
     }
