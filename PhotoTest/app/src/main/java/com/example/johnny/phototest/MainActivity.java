@@ -40,18 +40,18 @@ public class MainActivity extends AppCompatActivity{
             else
                 ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE}, WRITE_STORAGE_PERMISSION_CODE);
 
-            String path = "/sdcard";
+            String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString() + "/camera";
             Log.d("Files", "Path: " + path);
             //Create a file
-            File newFile = new File("/sdcard/tempfile.txt");
+            File newFile = new File(path + "/tempfile.txt");
             try {
                 newFile.createNewFile();
             } catch(Exception e) {
+                Log.d("Files", "Failed to create file 'tempfile.txt'");
             }
             //List Directory and note tempfile.txt
             File directory = new File(path);
-            File dir = new File(path);
-            File[] files = dir.listFiles();
+            File[] files = directory.listFiles();
             Log.d("Files", "Size: "+ files.length);
             for (int i = 0; i < files.length; i++)
             {
@@ -78,7 +78,6 @@ public class MainActivity extends AppCompatActivity{
 
 
             });
-
 
 
 
