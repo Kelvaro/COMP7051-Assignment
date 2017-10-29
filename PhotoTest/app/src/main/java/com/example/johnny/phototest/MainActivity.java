@@ -40,7 +40,9 @@ public class MainActivity extends AppCompatActivity{
             else
                 ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE}, WRITE_STORAGE_PERMISSION_CODE);
 
+
             String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString() + "/camera";
+
             Log.d("Files", "Path: " + path);
             //Create a file
             File newFile = new File(path + "/tempfile.txt");
