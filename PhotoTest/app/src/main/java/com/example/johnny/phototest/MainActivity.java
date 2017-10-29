@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity{
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
 //testing
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
+           if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
                 Log.d("Files", "Permission Exists");
             else
                 ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE}, READ_STORAGE_PERMISSION_CODE);
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity{
                 ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE}, WRITE_STORAGE_PERMISSION_CODE);
 
 
-            String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString() + "/camera";
+            String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString() + "/photos";
 
             Log.d("Files", "Path: " + path);
             //Create a file
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity{
 
 
 
-            Date = (EditText) findViewById(R.id.StartText);
+         /*   Date = (EditText) findViewById(R.id.StartText);
 
             Date2 = (EditText) findViewById(R.id.EndText);
 
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity{
 
 
 
-            });
+            }); */
 
 
 
