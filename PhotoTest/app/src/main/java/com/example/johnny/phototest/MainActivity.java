@@ -1,5 +1,6 @@
 package com.example.johnny.phototest;
 
+import android.content.Intent;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,14 +11,21 @@ import android.Manifest;
 import android.support.v4.content.ContextCompat;
 import android.content.pm.PackageManager;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity{
     EditText Date;
     EditText Date2;
-
+    private String[] FilePathStrings;
+    private String[] FileNameStrings;
+    private File[] listFile;
+    GridView grid;
+    Gallery adapter;
+    File file;
     Button Search;
 
 
@@ -79,7 +87,42 @@ public class MainActivity extends AppCompatActivity{
 
 
 
-            }); 
+            });
+
+
+
+            // Locate the GridView in gridview_main.xml
+            grid = (GridView) findViewById(R.id.gallery);
+            // Pass String arrays to LazyAdapter Class
+            adapter = new Gallery(this, FilePathStrings, FileNameStrings);
+            // Set the LazyAdapter to the GridView
+            grid.setAdapter(adapter);
+
+            // Capture gridview item click
+            grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view,
+                                        int position, long id) {
+
+                    Intent i = new Intent(MainActivity.this, ViewImage.class);
+                    // Pass String arrays FilePathStrings
+                    i.putExtra("filepath", FilePathStrings);
+                    // Pass String arrays FileNameStrings
+                    i.putExtra("filename", FileNameStrings);
+                    // Pass click position
+                    i.putExtra("position", position);
+                    startActivity(i);
+                }
+
+            });
+
+
+
+
+
+
+
 
 
 
