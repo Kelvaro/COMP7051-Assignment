@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity{
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
+            Log.d("testing emulator","testing emulator");
 //testing
           /* if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
                 Log.d("Files", "Permission Exists");
@@ -91,6 +92,8 @@ public class MainActivity extends AppCompatActivity{
             } else {
                 // Locate the image folder in your SD Card
                 file = new File(Environment.getExternalStorageDirectory()
+                        + File.separator + "photos");
+                Log.d("",Environment.getExternalStorageDirectory()
                         + File.separator + "photos");
                 // Create a new folder if no folder named photos exist
                 file.mkdirs();
@@ -139,7 +142,7 @@ public class MainActivity extends AppCompatActivity{
         }
 
 
-    public void cameraOnClick (View v) {
+  /*  public void cameraOnClick (View v) {
 
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
@@ -164,6 +167,46 @@ public class MainActivity extends AppCompatActivity{
 
         }
 
+    }  */
+
+        public void cameraOnClick (View v) {
+
+            dispatchTakePictureIntent();
+
+        }
+
+    private void dispatchTakePictureIntent() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+
+            // Create the File where the photo should go
+            File photoFile = null;
+            try {
+                photoFile = createImageFile();
+            } catch (IOException ex) {
+                // Error occurred while creating the File
+
+            }
+            // Continue only if the File was successfully created
+            if (photoFile != null) {
+                Uri photoURI = FileProvider.getUriForFile(this,
+                        "com.johnny.android.fileprovider",
+                        photoFile);
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
+            }
+        }
+
+
+
+    }
+
+    private void galleryAddPic() {
+        Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+        File f = new File(mCurrentPhotoPath);
+        Uri contentUri = Uri.fromFile(f);
+        mediaScanIntent.setData(contentUri);
+        this.sendBroadcast(mediaScanIntent);
     }
 
 
@@ -172,8 +215,7 @@ public class MainActivity extends AppCompatActivity{
         // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "JPEG_" + timeStamp + "_";
-        File storageDir = getExternalFilesDir(Environment.getExternalStorageDirectory()
-                + File.separator + "photos");
+        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File image = File.createTempFile(
                 imageFileName,  /* prefix */
                 ".jpg",         /* suffix */
