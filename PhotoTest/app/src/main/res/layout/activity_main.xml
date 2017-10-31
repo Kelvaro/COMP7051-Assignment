@@ -38,7 +38,7 @@
         android:layout_marginEnd="84dp" />
 
     <GridView
-        android:id="@+id/gridview"
+        android:id="@+id/GridView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:columnWidth="90dp"
