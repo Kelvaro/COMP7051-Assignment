@@ -21,26 +21,15 @@ public class PhotoStore extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
 
+
         super.onCreate(savedInstanceState);
-        // Get the view from view_image.xml
+        Intent intent = getIntent();
+
         setContentView(R.layout.gallery);
 
       
 
-        Back = (Button) findViewById(R.id.back);
-        Back.setOnClickListener(new View.OnClickListener(){
 
-            @Override
-            public void onClick(View v) {
-                setContentView(R.layout.activity_main);
-
-
-            }
-
-
-
-
-        });
 
 
 
@@ -48,6 +37,14 @@ public class PhotoStore extends Activity {
 
 
         }
+
+
+    public void backOnClick (View view) {
+
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+
+    }
 }
 
 

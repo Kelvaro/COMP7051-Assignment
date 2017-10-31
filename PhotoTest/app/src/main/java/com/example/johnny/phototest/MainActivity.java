@@ -106,28 +106,6 @@ public class MainActivity extends AppCompatActivity{
 
 
 
-            Search = (Button) findViewById(R.id.SearchButton);
-            Search.setOnClickListener(new View.OnClickListener(){
-
-                @Override
-                public void onClick(View v) {
-                    setContentView(R.layout.gallery);
-
-
-                }
-
-
-
-
-            });
-
-        //    public void search_Click (View v){
-
-
-              //  startActivity(new Intent (this, PhotoStore.class));
-
-
-
 
 
 
@@ -167,4 +145,11 @@ public class MainActivity extends AppCompatActivity{
                 }
             }
         }
+
+    public void buttonOnClick (View v) {
+
+        Intent intent = new Intent(MainActivity.this, PhotoStore.class);
+        startActivity(intent);
+
+    }
 }
