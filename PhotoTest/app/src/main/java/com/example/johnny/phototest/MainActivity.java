@@ -142,33 +142,6 @@ public class MainActivity extends AppCompatActivity{
         }
 
 
-  /*  public void cameraOnClick (View v) {
-
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-
-            File photoFile = null;
-            try {
-                photoFile = createImageFile();
-            } catch (IOException ex) {
-                // Error occurred while creating the File
-
-            }
-
-            // Continue only if the File was successfully created
-            if (photoFile != null) {
-                Uri photoURI = FileProvider.getUriForFile(this,
-                        "com.example.android.fileprovider",
-                        photoFile);
-                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
-            }
-
-        }
-
-    }  */
-
         public void cameraOnClick (View v) {
 
             dispatchTakePictureIntent();
@@ -178,7 +151,7 @@ public class MainActivity extends AppCompatActivity{
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
             // Create the File where the photo should go
             File photoFile = null;
             try {
@@ -190,7 +163,7 @@ public class MainActivity extends AppCompatActivity{
             // Continue only if the File was successfully created
             if (photoFile != null) {
                 Uri photoURI = FileProvider.getUriForFile(this,
-                        "com.johnny.android.fileprovider",
+                        "com.example.johnny.fileprovider",
                         photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                 startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
@@ -215,7 +188,8 @@ public class MainActivity extends AppCompatActivity{
         // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "JPEG_" + timeStamp + "_";
-        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File storageDir =  new File(Environment.getExternalStorageDirectory() + File.separator + "photos");
+
         File image = File.createTempFile(
                 imageFileName,  /* prefix */
                 ".jpg",         /* suffix */
@@ -256,6 +230,7 @@ public class MainActivity extends AppCompatActivity{
         startActivity(intent);
 
     }
+
 
 
 }
