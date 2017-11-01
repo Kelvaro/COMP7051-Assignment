@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity{
             dispatchTakePictureIntent();
 
         }
-
+//photo now doesn't crash but doesn't appear on gridview unless the app restarts
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
