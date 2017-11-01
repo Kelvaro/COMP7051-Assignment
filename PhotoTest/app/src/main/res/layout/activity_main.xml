@@ -16,20 +16,20 @@
         android:text="Search"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/button2"
+        app:layout_constraintRight_toLeftOf="@+id/camerabutton"
         android:layout_marginRight="8dp"
         app:layout_constraintHorizontal_bias="0.164"
         android:layout_marginStart="73dp"
         android:layout_marginEnd="8dp" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/camerabutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="84dp"
         android:text="Camera"
-        android:onClick="onClick"
+        android:onClick="cameraOnClick"
         app:layout_constraintLeft_toRightOf="@+id/SearchButton"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
