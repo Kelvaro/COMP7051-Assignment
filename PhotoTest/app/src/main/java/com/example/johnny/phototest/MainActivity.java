@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity{
     ImageView result;
     Button takepic;
     String mCurrentPhotoPath;
+    String dateData;
 
         static final int REQUEST_IMAGE_CAPTURE =1;
         private int READ_STORAGE_PERMISSION_CODE = 23;
@@ -80,6 +81,7 @@ public class MainActivity extends AppCompatActivity{
                 Log.d("Files", "FileName:" + files[i].getName());
             }
 */
+
 
 
 

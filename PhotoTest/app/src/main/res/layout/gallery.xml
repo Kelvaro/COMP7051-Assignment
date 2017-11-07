@@ -25,6 +25,7 @@
         android:layout_marginLeft="25dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="50dp"
+        android:onClick="nameSearch"
         android:text="Search" />
 
     <Button
@@ -45,6 +46,7 @@
         android:layout_alignStart="@+id/locationButton"
         android:layout_below="@+id/locationButton"
         android:layout_marginTop="29dp"
+        android:onClick="dateSearch"
         android:text="Search" />
 
     <EditText
@@ -80,7 +82,8 @@
         android:inputType="date"
         android:layout_alignTop="@+id/dateButton"
         android:layout_alignLeft="@+id/locationText"
-        android:layout_alignStart="@+id/locationText" />
+        android:layout_alignStart="@+id/locationText"
+        />
 
 
 </RelativeLayout>
