@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity{
         static final int REQUEST_IMAGE_CAPTURE =1;
         private int READ_STORAGE_PERMISSION_CODE = 23;
         private int WRITE_STORAGE_PERMISSION_CODE = 24;
-        static final int REQUEST_TAKE_PHOTO = 1;
+        static final int REQUEST_TAKE_PHOTO = 0;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity{
 
                 for (int i = 0; i < listFile.length; i++) {
                     // Get the path of the image file
-                    FilePathStrings[i] = listFile[i].getAbsolutePath();
+                    FilePathStrings[i] = listFile[i].getPath();
                     // Get the name image file
                     FileNameStrings[i] = listFile[i].getName();
                 }
@@ -148,32 +148,41 @@ public class MainActivity extends AppCompatActivity{
 
             dispatchTakePictureIntent();
 
+
+
         }
 //photo now doesn't crash but doesn't appear on gridview unless the app restarts
-    private void dispatchTakePictureIntent() {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-            // Create the File where the photo should go
-            File photoFile = null;
-            try {
-                photoFile = createImageFile();
-            } catch (IOException ex) {
-                // Error occurred while creating the File
+private void dispatchTakePictureIntent() {
+    Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+    // Ensure that there's a camera activity to handle the intent
+    if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+        // Create the File where the photo should go
+        File photoFile = null;
+        try {
+            photoFile = createImageFile();
+        } catch (IOException ex) {
+            // Error occurred while creating the File
 
-            }
-            // Continue only if the File was successfully created
-            if (photoFile != null) {
-                Uri photoURI = FileProvider.getUriForFile(this,
-                        "com.example.johnny.fileprovider",
-                        photoFile);
-                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
-            }
         }
+        // Continue only if the File was successfully created
+        if (photoFile != null) {
+            Uri photoURI = FileProvider.getUriForFile(this,
+                    "com.example.johnny.fileprovider",
+                    photoFile);
+            takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+            startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
+        }
+    }
+}
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
 
-
+            // ... do something with the bitmap ...
+        }
     }
 
     private void galleryAddPic() {

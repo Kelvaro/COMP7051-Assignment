@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Button;
 
-import static com.example.johnny.phototest.R.id.editText;
+import static com.example.johnny.phototest.R.id.nameText;
 
 /**
  * Created by Administrator on 10/15/2017.
@@ -53,10 +53,29 @@ public class PhotoStore extends Activity {
 
     public void dateSearch (View view){
 
-        search = (TextView) findViewById(R.id.editText);
+        search = (TextView) findViewById(R.id.dateText);
         filterdate = search.getText().toString();
         Intent intent = new Intent(PhotoStore.this, MainActivity.class);
-        intent.putExtra("datedata", filterdate);
+
+        startActivity(intent);
+
+
+    }
+    public void locationSearch (View view){
+
+        search = (TextView) findViewById(R.id.locationText);
+        filterdate = search.getText().toString();
+        Intent intent = new Intent(PhotoStore.this, MainActivity.class);
+
+        startActivity(intent);
+
+
+    }
+    public void nameSearch (View view){
+
+        search = (TextView) findViewById(R.id.nameText);
+        filterdate = search.getText().toString();
+        Intent intent = new Intent(PhotoStore.this, MainActivity.class);
         startActivity(intent);
 
 

@@ -36,6 +36,7 @@
         android:layout_alignRight="@+id/nameButton"
         android:layout_below="@+id/nameButton"
         android:layout_marginTop="27dp"
+        android:onClick="locationSearch"
         android:text="Search" />
 
     <Button
@@ -50,7 +51,7 @@
         android:text="Search" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/nameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/back"
@@ -70,8 +71,8 @@
         android:hint="Location"
         android:inputType="textPersonName"
         android:layout_alignTop="@+id/locationButton"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText" />
+        android:layout_alignLeft="@+id/nameText"
+        android:layout_alignStart="@+id/nameText" />
 
     <EditText
         android:id="@+id/dateText"
