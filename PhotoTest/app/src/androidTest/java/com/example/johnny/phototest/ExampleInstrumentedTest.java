@@ -60,6 +60,8 @@ public class ExampleInstrumentedTest {
 
         onView(withId(R.id.nameText)).perform(typeText("Johnny Kang"));
         onView(withId(R.id.nameButton)).perform((click()));
+
+        onView(withId(R.id.GridView)).check(matches(isDisplayed()));
         //        .perform(typeText("20160202"), closeSoftKeyboard());
      //   onView(withId(R.id.EndText))
       //          .perform(typeText("20160404"), closeSoftKeyboard());
@@ -67,7 +69,7 @@ public class ExampleInstrumentedTest {
         // Check that the text was changed.
      //   onView(withId(R.id.imageView2)).check(matches(isDisplayed()));
         //onView(withContentDescription("Navigate up")).perform(click());
-        
+
         
     }
 
