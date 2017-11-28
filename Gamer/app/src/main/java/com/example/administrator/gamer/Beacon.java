@@ -36,8 +36,9 @@ public class Beacon extends AppCompatActivity{
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Intent intent = new Intent (Beacon.this, MainActivity.class);
+                        Intent intent = new Intent (Beacon.this, MainActivity.class).putExtra("turn", true);
                         startActivity(intent);
+
                     }
                 });
 
