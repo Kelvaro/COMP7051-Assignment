@@ -28,7 +28,7 @@ public class PhotoStore extends Activity {
 
 
         super.onCreate(savedInstanceState);
-        Intent intent = getIntent();
+
 
         setContentView(R.layout.gallery);
 
