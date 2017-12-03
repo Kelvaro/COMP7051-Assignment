@@ -9,30 +9,53 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    boolean beaconStatus;
  ImageView indicator;
-    public boolean beaconOn = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Bundle bundle = getIntent().getExtras();
+        if(bundle !=null) {
+            beaconStatus = bundle.getBoolean("beaconStatus1");
 
-        if(beaconOn == false) {
+
+        }
+        if(beaconStatus == false) {
+
             indicator = (ImageView) findViewById(R.id.indicator);
             indicator.setVisibility(View.INVISIBLE);
         }
-        else if (beaconOn == true ){
+        else if (beaconStatus==true){
+
             indicator = (ImageView) findViewById(R.id.indicator);
             indicator.setVisibility(View.VISIBLE);
+
+
         }
+
+
 
 
 
     }
+
+
+
+
     public void beacon (View v) {
 
         Intent intent = new Intent(MainActivity.this, Beacon.class);
         startActivity(intent);
+
+    }
+
+    public void searchGamers (View v){
+        Intent searchIntent = new Intent (MainActivity.this, searchGamers.class);
+        startActivity(searchIntent);
 
     }
 }

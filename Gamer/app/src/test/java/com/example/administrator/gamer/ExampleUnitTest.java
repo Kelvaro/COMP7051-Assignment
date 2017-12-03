@@ -1,6 +1,7 @@
 package com.example.administrator.gamer;
 
 import android.view.Display;
+import android.widget.ImageView;
 
 import org.junit.Test;
 
@@ -18,9 +19,9 @@ public class ExampleUnitTest {
     }
 
     @Test
-    public void indicatorshows() throws Exception{
+    public void indicator_shows() throws Exception{
 
-     
+
 
     }
 

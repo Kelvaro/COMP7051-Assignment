@@ -20,6 +20,7 @@
         <activity android:name=".MainActivity"></activity>
         <activity android:name=
             ".Beacon"></activity>
+        <activity android:name=".searchGamers"></activity>
     </application>
 
 </manifest>

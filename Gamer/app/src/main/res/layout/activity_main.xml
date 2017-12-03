@@ -21,7 +21,8 @@
         android:layout_alignEnd="@+id/button4"
         android:layout_alignStart="@+id/button4"
         android:layout_centerVertical="true"
-        android:text="Search Gamers" />
+        android:text="Search Gamers"
+        android:onClick="searchGamers"/>
 
     <Button
         android:id="@+id/button4"
@@ -30,7 +31,7 @@
         android:layout_below="@+id/button3"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="41dp"
-        android:text="Manage Groups and Friends" />
+        android:text="Manage Contacts" />
 
     <ImageView
         android:id="@+id/indicator"

@@ -7,6 +7,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 /**
  * Created by Administrator on 11/27/2017.
@@ -14,8 +15,8 @@ import android.widget.Button;
 
 public class Beacon extends AppCompatActivity{
 
-
-
+    EditText game;
+    EditText location;
 
 
     @Override
@@ -29,15 +30,21 @@ public class Beacon extends AppCompatActivity{
         activate.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick (View view){
+                game = (EditText)findViewById(R.id.editGame);
+                location = (EditText)findViewById(R.id.editLocation);
+                final String displayLocation = location.getText().toString();
+                final String displayGame = game.getText().toString();
                 final AlertDialog.Builder builder = new AlertDialog.Builder(Beacon.this);
                 builder.setTitle("Beacon Confirmation");
-                builder.setMessage("Activate Beacon?");
+                builder.setMessage("Activate Beacon for " + displayGame + " in " + displayLocation+ "?");
 
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Intent intent = new Intent (Beacon.this, MainActivity.class).putExtra("turn", true);
-                        startActivity(intent);
+                        boolean beaconStatus = true;
+                        Intent beaconStatusIntent = new Intent(Beacon.this, MainActivity.class);
+                        beaconStatusIntent.putExtra("beaconStatus1", beaconStatus);
+                        startActivity(beaconStatusIntent);
 
                     }
                 });
