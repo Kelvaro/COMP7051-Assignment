@@ -21,6 +21,7 @@
         <activity android:name=
             ".Beacon"></activity>
         <activity android:name=".searchGamers"></activity>
+        <activity android:name=".Contacts"></activity>
     </application>
 
 </manifest>

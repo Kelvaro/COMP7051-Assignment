@@ -31,7 +31,8 @@
         android:layout_below="@+id/button3"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="41dp"
-        android:text="Manage Contacts" />
+        android:text="Manage Contacts"
+        android:onClick="contacts"/>
 
     <ImageView
         android:id="@+id/indicator"

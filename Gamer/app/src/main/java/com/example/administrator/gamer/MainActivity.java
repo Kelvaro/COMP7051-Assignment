@@ -58,4 +58,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(searchIntent);
 
     }
+
+    public void contacts (View v){
+        Intent contactIntent = new Intent (MainActivity.this, Contacts.class);
+        startActivity(contactIntent);
+    }
 }
