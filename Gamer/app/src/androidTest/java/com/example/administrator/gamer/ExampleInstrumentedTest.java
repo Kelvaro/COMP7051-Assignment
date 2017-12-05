@@ -34,7 +34,7 @@ public class ExampleInstrumentedTest {
     public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(MainActivity.class);
 
     @Test
-    public void useAppContext() throws Exception {
+    public void TypeContext() throws Exception {
         // Context of the app under test.
        // Context appContext = InstrumentationRegistry.getTargetContext();
 
@@ -42,29 +42,34 @@ public class ExampleInstrumentedTest {
         onView(withId(R.id.button2)).perform((click()));
         onView(withId(R.id.editGame)).perform(typeText("League of Legends"), closeSoftKeyboard());
         onView(withId(R.id.editLocation)).perform(typeText("Vancouver, Canada"), closeSoftKeyboard());
-
         //checks alertdialog buttons
         onView(withId(R.id.activateButton)).perform((click()));
         onView(withText("No")).check(matches(isDisplayed())).perform(click());
         onView(withId(R.id.activateButton)).perform((click()));
         onView(withText("Yes")).check(matches(isDisplayed())).perform(click());
 
-        //transitions between Mainactivity and searchPeople
-        onView(withId(R.id.button3)).perform(click());
-        onView(withId(R.id.button)).perform(click());
-
-        //transitions between MainActivity and Contacts
-        onView(withId(R.id.button4)).perform(click());
-        onView(withId(R.id.button)).perform(click());
-
-
-
-
-
 
     }
 
 
 
+    @Test
+    public void testIntents() {
+
+        //transitions between Mainactivity and searchPeople
+        onView(withId(R.id.button3)).perform(click());
+        onView(withId(R.id.button)).perform(click());
+
+
+        //transitions between MainActivity and Contacts
+        onView(withId(R.id.button4)).perform(click());
+        onView(withId(R.id.button)).perform(click());
+    }
+
 
 }
+
+
+
+
+
