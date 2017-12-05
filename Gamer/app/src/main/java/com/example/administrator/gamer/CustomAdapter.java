@@ -15,13 +15,13 @@ import android.widget.TextView;
 public class CustomAdapter extends BaseAdapter {
     Context context;
     String playerList[];
-    int flags[];
+    int Pics[];
     LayoutInflater inflter;
 
     public CustomAdapter(Context applicationContext, String[] player, int[] playerIcon) {
         this.context = context;
         this.playerList = player;
-        this.flags = playerIcon;
+        this.Pics = playerIcon;
         inflter = (LayoutInflater.from(applicationContext));
     }
 
@@ -46,7 +46,7 @@ public class CustomAdapter extends BaseAdapter {
         TextView player = (TextView) view.findViewById(R.id.textView);
         ImageView icon = (ImageView) view.findViewById(R.id.icon);
         player.setText(playerList[i]);
-        icon.setImageResource(flags[i]);
+        icon.setImageResource(Pics[i]);
         return view;
     }
 }
