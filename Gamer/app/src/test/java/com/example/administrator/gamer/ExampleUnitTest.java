@@ -1,11 +1,14 @@
 package com.example.administrator.gamer;
 
+import android.content.Context;
 import android.view.Display;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
 
 import static org.junit.Assert.*;
 
@@ -14,13 +17,13 @@ import static org.junit.Assert.*;
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
+
 public class ExampleUnitTest {
 
-String inputG = "League of Legends";
-String inputL = "Vancouver, Canada";
-float output;
 
-   
+
+
+
 
     @Test
     public void beacon_shows() throws Exception{
@@ -28,6 +31,7 @@ float output;
         MainActivity main = new MainActivity();
         main.beaconStatus = status;
         assertEquals(true, main.beaconStatus);
+
     }
 
     @Test
@@ -38,6 +42,11 @@ float output;
         assertEquals(false, main.beaconStatus);
 
     }
+
+    
+
+
+
 
 
 
